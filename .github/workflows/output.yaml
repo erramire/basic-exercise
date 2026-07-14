@@ -1,0 +1,11 @@
+name: "issue trigger workflow"
+on: issues
+jobs:
+  issue_trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Display issue details
+        run: |
+          echo "Issue Info: ${{ toJSON(github.event.issue) }}"
